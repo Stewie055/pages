@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { getPosts, postUrl, tagUrl, formatDate } from '../lib/posts';
+const posts = await getPosts();
+const featured = posts[0];
+const tags = [...new Set(posts.flatMap(p => p.data.tags))];
+---
+<Base>
+  <section class="hero">
+    <div class="eyebrow"><span class="status-dot"></span> NOTES ON CODE & LIFE</div>
+    <h1>记录技术，<br />也记录<span class="hero-accent">思考。</span></h1>
+    <p>在代码与日常之间，留下一些有用的东西。<br />关于编程、系统、工具，以及探索的过程。</p>
+    <a href="#articles" class="text-link">浏览文章 <span>↓</span></a>
+    <div class="hero-aside"><span>BUILD. DEBUG. DOCUMENT.</span><div class="code-sketch"><span>~/erossr</span><br /><b>$</b> cat thoughts.md<br /><i>学习 / 实践 / 记录</i><br /><b>$</b> <span class="cursor">▍</span></div></div>
+  </section>
+  <section class="featured-section" aria-label="推荐阅读">
+    <a class="featured-card" href={postUrl(featured.data.slug)}>
+      <div class="eyebrow">值得一读 <span>01 / NOTES</span></div>
+      <h2>{featured.data.title}</h2>
+      <p>{featured.data.description}</p>
+      <div class="featured-meta"><span>{formatDate(featured.data.date)} · {featured.data.tags.join(' / ')}</span><span class="round-arrow">↗</span></div>
+    </a>
+    <aside class="side-note"><span class="eyebrow">持续探索</span><h2>问题的背后，<br />总有值得深究的原理。</h2><p>从一次调试开始，到理解系统的运行方式。把走过的弯路记下来，也给下一次探索留个路标。</p><a href="/about/" class="text-link">关于这个博客 <span>↗</span></a></aside>
+  </section>
+  <section id="articles" class="articles-section">
+    <div class="section-heading"><h2>所有文章 <span>{posts.length.toString().padStart(2, '0')}</span></h2><a href="/archives/">按年份浏览 ↗</a></div>
+    <div class="topic-links"><a href="#articles" class="active">全部</a>{tags.slice(0, 8).map(tag => <a href={tagUrl(tag)}>{tag}</a>)}</div>
+    <PostList posts={posts} />
+  </section>
+</Base>

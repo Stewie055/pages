@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, tagUrl } from '../../lib/posts';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap(p => p.data.tags))].map(tag => ({ tag, count: posts.filter(p => p.data.tags.includes(tag)).length })).sort((a,b) => b.count - a.count || a.tag.localeCompare(b.tag));
+---
+<Base title="标签"><section class="page-heading"><div class="eyebrow">EXPLORE BY TOPIC</div><h1>顺着兴趣，继续阅读</h1><p>在不同主题之间，找到相关的记录。</p></section><div class="tag-grid">{tags.map(({tag,count}) => <a href={tagUrl(tag)}><span>{tag}</span><small>{count} 篇 <b>↗</b></small></a>)}</div></Base>

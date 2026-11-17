@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPosts, postUrl, formatDate } from '../lib/posts';
+const posts = await getPosts();
+const years = [...new Set(posts.map(p => p.data.date.getUTCFullYear()))];
+---
+<Base title="归档">
+  <section class="page-heading"><div class="eyebrow">THE ARCHIVE</div><h1>时间里的记录</h1><p>共 {posts.length} 篇文章，从问题出发，沿着时间回看。</p></section>
+  <div class="archive">{years.map(year => <section class="archive-year"><h2>{year}<span>{posts.filter(p => p.data.date.getUTCFullYear() === year).length} 篇</span></h2><div>{posts.filter(p => p.data.date.getUTCFullYear() === year).map(post => <a class="archive-item" href={postUrl(post.data.slug)}><time datetime={formatDate(post.data.date)}>{formatDate(post.data.date).slice(5)}</time><span>{post.data.title}</span><b>↗</b></a>)}</div></section>)}</div>
+</Base>

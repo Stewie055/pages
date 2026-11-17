@@ -1,0 +1,343 @@
+{
+  "articles": [
+    {
+      "title": "动态链接库函数内的静态变量,奇妙的UNIQUE Bind",
+      "date": "2018-09-28",
+      "updated": "2018-09-29",
+      "description": "模板函数和内敛函数中的静态变量，在跨so中的表现，和定义在其他函数中的静态变量的表现稍微有所不同。使用不慎，会造成预期之外的结果。本文对该现象进行了探讨。 最近遇到一个使用多个共享动态库时，由于静态变量导致的逻辑问题。考虑如下一个问题，主模块要打开A.so和B.so两个动态库，两个动态库的代码使用到",
+      "slug": "动态链接库函数内的静态变量-奇妙的UNIQUE-Bind",
+      "tags": [
+        "C/C++",
+        "Linux"
+      ],
+      "source": "动态链接库函数内的静态变量-奇妙的UNIQUE-Bind/index.html",
+      "codeBlocks": 15,
+      "images": 0
+    },
+    {
+      "title": "core dump文件分析和调试",
+      "date": "2018-09-25",
+      "description": "当程序运行的过程中异常终止或崩溃，操作系统会将程序当时的内存状态记录下来，保存在一个文件中，这种行为就叫做Core Dump（中文有的翻译成“核心转储”)。我们可以认为 core dump 是“内存快照”，但实际上，除了内存信息之外，还有些关键的程序运行状态也会同时 dump 下来，例如寄存器信息（",
+      "slug": "core-dump文件分析和调试",
+      "tags": [
+        "调试",
+        "Linux"
+      ],
+      "source": "core-dump文件分析和调试/index.html",
+      "codeBlocks": 6,
+      "images": 0
+    },
+    {
+      "title": "arm平台的调用栈回溯(backtrace)",
+      "date": "2018-09-19",
+      "updated": "2018-09-25",
+      "description": "arm平台的调用栈与x86平台的调用栈大致相同，稍微有些区别，主要在于栈帧的压栈内容和传参方式不同。在arm平台的不同程序，采用的编译选项不同，程序运行期间的栈帧也会不同。有些工具在对arm的调用栈回溯时，可能会遇到无法回溯的情况。例如gdb在使用bt查看core dump文件调用栈时，有时会出现B",
+      "slug": "Arm平台的调用栈回溯",
+      "tags": [
+        "C/C++",
+        "调试"
+      ],
+      "source": "Arm平台的调用栈回溯/index.html",
+      "codeBlocks": 6,
+      "images": 1
+    },
+    {
+      "title": "appleid切换美区",
+      "date": "2018-02-04",
+      "description": "以下内容摘自V2Ex, 经验证有效 刚刚那个美区 APP 被清空的帖子已经展示了我的智商…为了表示歉意(纠正一下我的智商)，我说一下 Apple ID 切换美区的一个奇淫技巧吧；刚刚测试把室友的切换过去了，此办法在切换过程无需任何支付卡号，目前百分百成功…但是为了巩固账号，我建议还是某宝买个礼品卡冲",
+      "slug": "appleid切换美区",
+      "tags": [
+        "工具"
+      ],
+      "source": "appleid切换美区/index.html",
+      "codeBlocks": 0,
+      "images": 0
+    },
+    {
+      "title": "Centos7启用BBR",
+      "date": "2018-02-04",
+      "description": "BBR (Bottleneck Bandwidth and RTT) is a new congestion control algorithm which is contributed to the Linux kernel TCP stack by Google. With BBR in pla",
+      "slug": "bbr",
+      "tags": [
+        "Linux",
+        "网络"
+      ],
+      "source": "bbr/index.html",
+      "codeBlocks": 4,
+      "images": 0
+    },
+    {
+      "title": "hexo博客一键式部署到服务器",
+      "date": "2018-02-04",
+      "updated": "2018-02-05",
+      "description": "hexo博客部署到服务器可以使用git和rsync方法，本文首先接受git方式。通过hexo d命令将public目录推送到git服务器，并触发部署代码到网站目录。 git服务器可以选择gitlab或者gogs, 本文选择gogs。gogs安装链接 安装完gogs服务器后，配置好git网站git.e",
+      "slug": "gogs和git-hook实现hex博客一键式部署",
+      "tags": [
+        "Git",
+        "部署"
+      ],
+      "source": "gogs和git-hook实现hex博客一键式部署/index.html",
+      "codeBlocks": 3,
+      "images": 0
+    },
+    {
+      "title": "create git service with gog",
+      "date": "2018-02-02",
+      "updated": "2018-02-03",
+      "description": "今天发现gog挺好玩的，再加上自己的博客即将从wordpress转为hexo，所以希望有个git仓库保存自己的资源。借此机会，试一下gog的服务。 遇到的第一个难题就是在安装gog时，遇到Error 1071: Specified key was too long; max key length i",
+      "slug": "create-git-service-with-gog",
+      "tags": [
+        "Git",
+        "部署"
+      ],
+      "source": "create-git-service-with-gog/index.html",
+      "codeBlocks": 1,
+      "images": 0
+    },
+    {
+      "title": "Hello World",
+      "date": "2018-01-28",
+      "updated": "2018-02-04",
+      "description": "Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ",
+      "slug": "hello-world",
+      "tags": [
+        "随笔"
+      ],
+      "source": "hello-world/index.html",
+      "codeBlocks": 4,
+      "images": 0
+    },
+    {
+      "title": "使用fail2ban阻止暴力破解ssh",
+      "date": "2016-12-12",
+      "updated": "2018-02-04",
+      "description": "今天晚上在博客服务器上进行操作的时候，突然发现登录后提示本次登录前有几十次的失败登录。查看登录Log（/val/log/secure）,发现有大量失败的ssh登录记录。可以判断有人是在尝试暴力破解ssh。以前曾经使用过fail2ban，这次决定用fail2ban来禁止对方登录。以下是在centos7",
+      "slug": "fail2ban",
+      "tags": [
+        "Linux",
+        "安全"
+      ],
+      "source": "fail2ban/index.html",
+      "codeBlocks": 2,
+      "images": 2
+    },
+    {
+      "title": "破解py2exe打包的程序",
+      "date": "2015-12-31",
+      "description": "py2exe是一个将python脚本转换成windows上的可独立执行的可执行程序(*.exe)的工具，这样，你就可以不用装python而在windows系统上运行这个可执行程序。然而如果不对代码做任何混淆，仅使用Py2exe将程序打包的程序容易被破解。本文讲解破解Py2exe打包的程序的过程。 P",
+      "slug": "破解py2exe打包的程序",
+      "tags": [
+        "Python",
+        "逆向分析"
+      ],
+      "source": "破解py2exe打包的程序/index.html",
+      "codeBlocks": 5,
+      "images": 4
+    },
+    {
+      "title": "hashcat破解office(97-03,2007,2010,2013)密码",
+      "date": "2015-09-13",
+      "updated": "2015-09-14",
+      "description": "hashcat是一款免费的密码破解工具。它支持使用AMD和NVidia显卡运算，同时也保留使用cpu计算的版本。hashcat号称是世界上最快的密码破解工具，同时也是世界上第一款和唯一一款使用通用图形处理器的工具。它支持windows和linux操作系统，同时支持OpenCL和CUDA。hashca",
+      "slug": "hashcat破解office密码",
+      "tags": [
+        "安全",
+        "工具"
+      ],
+      "source": "hashcat破解office密码/index.html",
+      "codeBlocks": 8,
+      "images": 0
+    },
+    {
+      "title": "Meteor使用现有的mongodb数据库",
+      "date": "2015-05-01",
+      "description": "meteor使用环境变量MONGO_URL确定mongodb的位置。如果已经存在一个监听在27017端口上的mongdb，则可以使用下边的一句话使用现有的mongodb。 将其中的your_db替换成你要使用的数据库。每次重开一个终端或主机重启的时候，环境变量会还原，需要重新导入。",
+      "slug": "meteorshi-yong-xian-you-de-mongodbshu-ju-ku",
+      "tags": [
+        "Web",
+        "数据库"
+      ],
+      "source": "meteorshi-yong-xian-you-de-mongodbshu-ju-ku/index.html",
+      "codeBlocks": 1,
+      "images": 0
+    },
+    {
+      "title": "字母转换大小写",
+      "date": "2015-05-01",
+      "description": "在ASCII码中，大写字母A-Z的编码是41h-5Ah,小写字母a-z的编码是61h-8Ah,中间相差20h，用二进制表示就是0010 0000。所以当从大写转换成小写或者从小写转换到大写的时候只需改变一位即可。可以用位操作很快的实现。 c语言示例代码",
+      "slug": "zi-mu-zhuan-huan-da-xiao-xie",
+      "tags": [
+        "编程"
+      ],
+      "source": "zi-mu-zhuan-huan-da-xiao-xie/index.html",
+      "codeBlocks": 1,
+      "images": 0
+    },
+    {
+      "title": "Vim tutorial",
+      "date": "2014-12-17",
+      "description": "写在前边请忽略任何将VIM配置成类似Notepad编辑器的建议（Please ignore anyone who provides advice on how to configure Vim to operate like Notepad!） Vim中有Normal(普通)，Insert（编辑）和",
+      "slug": "vim-tutorial",
+      "tags": [
+        "Vim"
+      ],
+      "source": "vim-tutorial/index.html",
+      "codeBlocks": 0,
+      "images": 0
+    },
+    {
+      "title": "Vim 学习笔记-使用tab分页（1）",
+      "date": "2014-12-09",
+      "description": "下边的的内容会介绍利用tab分页打开和编辑文件。在Vim中，所有文本都被放在缓存区，每一个缓存区都可以被显示在任意数量的窗口或任意数量的tab页面中（就像谷歌浏览器的标签页，以下将用tab描述）。 在很多编辑器中（不包括Vim）,一个文件只能在一个分页中打开，而每一个分页只能显示一个文件，一个文件不",
+      "slug": "vim-xue-xi-bi-ji-shi-yong-biao-qian-lan",
+      "tags": [
+        "Vim"
+      ],
+      "source": "vim-xue-xi-bi-ji-shi-yong-biao-qian-lan/index.html",
+      "codeBlocks": 9,
+      "images": 0
+    },
+    {
+      "title": "Vim 学习笔记-复制和粘贴",
+      "date": "2014-12-08",
+      "updated": "2014-12-17",
+      "description": "最近随着在linux下工作的时间越来越多，Vim的使用次数也越来在越多。以前曾经掌握的基本操作本来就不多，后来又忘掉了很多，现在越来越感觉会的快捷键不够用了，导致编辑效率不高。所以现在每天花点时间重新学些Vim的东西吧。 剪切（复制）和粘贴 tips: d = delete = cut y = ya",
+      "slug": "vim-xue-xi-bi-ji-1",
+      "tags": [
+        "Vim"
+      ],
+      "source": "vim-xue-xi-bi-ji-1/index.html",
+      "codeBlocks": 2,
+      "images": 0
+    },
+    {
+      "title": "用python制作一个简单爬虫下载500px的图片",
+      "date": "2014-12-07",
+      "description": "500px.com是一个专业的摄影图片社区，在500px上可以发现和分享高质量的图片，它的Logo是“最出色的摄影社区”。我在他的网站上找到很多喜爱的图片。但是，当你发现自己喜爱的图片然后右键的时候，糟糕，提示“copyright blabla”,反正就是不让下载。今天，我在这里记录我分析他的API",
+      "slug": "fen-xi-500pxde-apibing-qie-zhi-zuo-ge-pa-chong",
+      "tags": [
+        "Python",
+        "爬虫"
+      ],
+      "source": "fen-xi-500pxde-apibing-qie-zhi-zuo-ge-pa-chong/index.html",
+      "codeBlocks": 1,
+      "images": 5
+    },
+    {
+      "title": "大话同步/异步、阻塞/非阻塞",
+      "date": "2014-12-02",
+      "updated": "2014-12-03",
+      "description": "原文作者：李博杰 原文地址:https://bojieli.com/2014/11/sync-async-blocked/ (转载请注明出处) 好多人搞不清这两组概念之间的区别。我们拿小明下载文件打个比方。 在不同的场景下，同步/异步、阻塞/非阻塞的四种组合都有应用。 同步阻塞是最简单的方式，就像我",
+      "slug": "da-hua-tong-bu-yi-bu-zu-sai-fei-zu-sai",
+      "tags": [
+        "编程",
+        "网络"
+      ],
+      "source": "da-hua-tong-bu-yi-bu-zu-sai-fei-zu-sai/index.html",
+      "codeBlocks": 0,
+      "images": 6
+    },
+    {
+      "title": "ghost blog安装过程",
+      "date": "2014-12-02",
+      "updated": "2014-12-05",
+      "description": "ghost blog是一个用node.js写成的开源博客平台，由前 WordPress UI 部门主管 John O’Nolan 和 WordPress 高级工程师（女） Hannah Wolfe 创立，目的是为了给用户提供一种更加纯粹的内容写作与发布平台。ghost blog现在有从zip压缩包安",
+      "slug": "ghost-blogan-zhuang-xiang-xi-guo-cheng",
+      "tags": [
+        "部署",
+        "Web"
+      ],
+      "source": "ghost-blogan-zhuang-xiang-xi-guo-cheng/index.html",
+      "codeBlocks": 3,
+      "images": 0
+    },
+    {
+      "title": "电信服务商屏蔽digitalocean新加坡ip",
+      "date": "2014-11-28",
+      "description": "因为最近在旧金山的digitalocean上的vps访问起来ping值越来越高，平均都在200以上了，所以今天想把droplet转移到新加坡机房。转移过后问题出现了。丢包特别严重平均50%。而且到后来ssh都无法连接成功。 给support提交了ticket，他们让我们traceroute和ping",
+      "slug": "dian-xin-fu-wu-shang-ping-bi-digitaloceanxin-jia-po-ip",
+      "tags": [
+        "网络"
+      ],
+      "source": "dian-xin-fu-wu-shang-ping-bi-digitaloceanxin-jia-po-ip/index.html",
+      "codeBlocks": 0,
+      "images": 0
+    },
+    {
+      "title": "使用Las Vegas随机算法求N皇后问题的解",
+      "date": "2014-11-28",
+      "description": "使用Las Vegas随机算法求N皇后问题的解",
+      "slug": "shi-yong-las-vegassui-ji-suan-fa-qiu-nhuang-hou-wen-ti-de-jie",
+      "tags": [
+        "算法"
+      ],
+      "source": "shi-yong-las-vegassui-ji-suan-fa-qiu-nhuang-hou-wen-ti-de-jie/index.html",
+      "codeBlocks": 1,
+      "images": 0
+    },
+    {
+      "title": "ubuntu 安装ssh-server并且允许root登陆",
+      "date": "2014-11-28",
+      "description": "ubuntu 安装ssh-server并且允许root登陆",
+      "slug": "ubuntu-an-zhuang-ssh-serverbing-qie-yun-xu-rootdeng-lu",
+      "tags": [
+        "Linux",
+        "SSH"
+      ],
+      "source": "ubuntu-an-zhuang-ssh-serverbing-qie-yun-xu-rootdeng-lu/index.html",
+      "codeBlocks": 0,
+      "images": 0
+    }
+  ],
+  "assets": [
+    "/images/stack.svg",
+    "/content/images/2016/sp161212_232935.png",
+    "/content/images/2016/sp161212_233044.png",
+    "/content/images/2014/12/QQ--20141208004913.png",
+    "/content/images/2014/12/QQ--20141208011307.png",
+    "/content/images/2014/12/QQ--20141208011616.png",
+    "/content/images/2014/12/QQ--20141208011658.png",
+    "/content/images/2014/12/QQ--20141208011710.png",
+    "/content/images/2015/12/script1.png",
+    "/content/images/2015/12/script2.png",
+    "/content/images/2015/12/script3.png",
+    "/content/images/2015/12/code1.png"
+  ],
+  "missing": [],
+  "externalImages": [
+    "https://bojieli.com/wp-content/uploads/2014/11/99880254f7298bc9d8f9e57a4033584a.png",
+    "https://bojieli.com/wp-content/uploads/2014/11/f4cabe69f04985ee5042782628517d69.png",
+    "https://bojieli.com/wp-content/uploads/2014/11/0909b4a6480a374239b4b76d1e6706ab.png",
+    "https://bojieli.com/wp-content/uploads/2014/11/e16f432c28c595ef44879bdc0da39ecc.png",
+    "https://bojieli.com/wp-content/uploads/2014/11/5c285ecb4fb48eb685a71e0303828e18.png",
+    "https://bojieli.com/wp-content/uploads/2014/11/4ca101de8090224e15b1887ef509de2e.png"
+  ],
+  "redirects": [
+    "/2014/11/28/dian-xin-fu-wu-shang-ping-bi-digitaloceanxin-jia-po-ip/ /dian-xin-fu-wu-shang-ping-bi-digitaloceanxin-jia-po-ip/ 301",
+    "/2014/11/28/shi-yong-las-vegassui-ji-suan-fa-qiu-nhuang-hou-wen-ti-de-jie/ /shi-yong-las-vegassui-ji-suan-fa-qiu-nhuang-hou-wen-ti-de-jie/ 301",
+    "/2014/11/28/ubuntu-an-zhuang-ssh-serverbing-qie-yun-xu-rootdeng-lu/ /ubuntu-an-zhuang-ssh-serverbing-qie-yun-xu-rootdeng-lu/ 301",
+    "/2014/12/02/da-hua-tong-bu-yi-bu-zu-sai-fei-zu-sai/ /da-hua-tong-bu-yi-bu-zu-sai-fei-zu-sai/ 301",
+    "/2014/12/02/ghost-blogan-zhuang-xiang-xi-guo-cheng/ /ghost-blogan-zhuang-xiang-xi-guo-cheng/ 301",
+    "/2014/12/07/fen-xi-500pxde-apibing-qie-zhi-zuo-ge-pa-chong/ /fen-xi-500pxde-apibing-qie-zhi-zuo-ge-pa-chong/ 301",
+    "/2014/12/08/vim-xue-xi-bi-ji-1/ /vim-xue-xi-bi-ji-1/ 301",
+    "/2014/12/09/vim-xue-xi-bi-ji-shi-yong-biao-qian-lan/ /vim-xue-xi-bi-ji-shi-yong-biao-qian-lan/ 301",
+    "/2014/12/17/vim-tutorial/ /vim-tutorial/ 301",
+    "/2015/05/01/meteorshi-yong-xian-you-de-mongodbshu-ju-ku/ /meteorshi-yong-xian-you-de-mongodbshu-ju-ku/ 301",
+    "/2015/05/01/zi-mu-zhuan-huan-da-xiao-xie/ /zi-mu-zhuan-huan-da-xiao-xie/ 301",
+    "/2015/09/13/hashcat破解office密码/ /hashcat破解office密码/ 301",
+    "/2015/12/31/破解py2exe打包的程序/ /破解py2exe打包的程序/ 301",
+    "/2016/12/12/fail2ban/ /fail2ban/ 301",
+    "/2018/01/28/hello-world/ /hello-world/ 301",
+    "/2018/02/02/create-git-service-with-gog/ /create-git-service-with-gog/ 301",
+    "/2018/02/04/appleid切换美区/ /appleid切换美区/ 301",
+    "/2018/02/04/bbr/ /bbr/ 301",
+    "/2018/02/04/gogs和git-hook实现hex博客一键式部署/ /gogs和git-hook实现hex博客一键式部署/ 301",
+    "/2018/02/04/hello-world/ /hello-world/ 301",
+    "/2018/09/19/Arm平台的调用栈回溯/ /Arm平台的调用栈回溯/ 301",
+    "/2018/09/25/core-dump文件分析和调试/ /core-dump文件分析和调试/ 301",
+    "/categories/ /tags/ 301",
+    "/Friends/ /about/ 301",
+    "/page/2/ /archives/ 301",
+    "/page/3/ /archives/ 301"
+  ]
+}

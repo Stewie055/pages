@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string; article?: boolean; }
+const { title, description = '二哈博客，记录编程、Linux、调试与工具的实践和思考。', article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} · 二哈博客` : '二哈博客 · 记录与探索'}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="二哈博客" href="/rss.xml" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={title || '二哈博客'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="二哈博客" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <script is:inline>
+      try { const t = localStorage.getItem('theme'); if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark'; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="二哈博客首页"><span class="brand-mark">E<span>_</span></span><span>二哈博客<small>EROSSR</small></span></a>
+      <nav aria-label="主导航">
+        <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>首页</a>
+        <a href="/archives/" aria-current={pathname === '/archives/' ? 'page' : undefined}>归档</a>
+        <a href="/tags/" aria-current={pathname.startsWith('/tags/') ? 'page' : undefined}>标签</a>
+        <a href="/about/" aria-current={pathname === '/about/' ? 'page' : undefined}>关于</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/search/" class="icon-button" aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+        <button class="icon-button" id="theme-toggle" aria-label="切换深浅主题" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg></button>
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer"><div><a href="/" class="footer-brand">二哈博客</a><p>把遇到的问题，变成留下的记录。</p></div><div class="footer-links"><a href="/archives/">所有文章</a><a href="/rss.xml">RSS ↗</a><span>© {new Date().getFullYear()} Erossr</span></div></footer>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
+      function syncTheme() { button?.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark')); }
+      syncTheme();
+      button?.addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = theme;
+        try { localStorage.setItem('theme', theme); } catch {}
+        syncTheme();
+      });
+      document.querySelectorAll<HTMLImageElement>('.prose img').forEach(image => {
+        function showFallback() {
+          const fallback = document.createElement('a');
+          fallback.href = image.src;
+          fallback.textContent = `${image.alt ? image.alt + '：' : ''}原图暂时无法加载，点击查看原图`;
+          fallback.className = 'image-fallback';
+          image.replaceWith(fallback);
+        }
+        image.addEventListener('error', showFallback, { once: true });
+        if (image.complete && image.naturalWidth === 0) showFallback();
+      });
+    </script>
+  </body>
+</html>
