@@ -2,21 +2,26 @@
 
 Astro 静态博客，正式地址计划使用 https://erossr.com。
 
-## Cloudflare Workers 发布
+## GitHub Actions 自动发布
 
 源码仓库：https://github.com/Stewie055/pages
-在 Cloudflare 的 Workers & Pages 中创建 Worker，连接此仓库，生产分支选择 `main`。
 
-- Worker 名称：`erossr-blog`，与 `wrangler.jsonc` 保持一致。
-- 构建命令：`npm run build`。
-- 部署命令：`npm run deploy`。
-- Node.js：24，可设置构建环境变量 `NODE_VERSION=24`。
-- 先使用分配的 `workers.dev` 地址，由用户检查页面、搜索和旧链接重定向。
-- 用户确认后，在 Worker 的 Domains & Routes 中添加 `erossr.com`；`www` 跳转通过 Cloudflare Redirect Rules 配置。
+在仓库 Settings → Secrets and variables → Actions 中添加两个 Repository secrets：
+
+- `CLOUDFLARE_API_TOKEN`：在 Cloudflare 创建 API Token，使用 Edit Cloudflare Workers 模板；将 Account Resources 限定到博客所在账户。工作流只部署静态站点，不修改域名，所需核心权限为 Account / Workers Scripts / Edit 和 Account / Account Settings / Read。
+- `CLOUDFLARE_ACCOUNT_ID`：博客所在 Cloudflare 账户 ID。
+
+添加后，进入 Actions → Deploy to Cloudflare Workers → Run workflow，完成首次部署。
+以后推送到 `main` 自动触发；工作流安装 Node.js 24、执行 `npm ci`、`npm run build` 和 `npm run deploy`。
+工作流不运行页面验证或迁移检查。
+
+先使用分配的 `workers.dev` 地址，由用户检查页面、搜索和旧链接重定向。
+确认后在 Worker 的 Settings → Domains & Routes 中添加 `erossr.com`；`www` 跳转通过 Cloudflare Redirect Rules 配置。
 
 Workers Static Assets 托管 `dist` 内的静态文件，不需要服务端渲染适配器。
-构建与部署由 Cloudflare 完成，平时只需提交 Markdown 到 GitHub。
-当前已准备发布配置；Cloudflare 连接、部署与域名绑定需在控制台完成。
+构建与部署通过 GitHub Actions 完成，平时只需提交 Markdown 到 GitHub。
+当前需要配置仓库 Secrets 才能部署；域名绑定由用户完成。
+不需要使用这台服务器的 Wrangler 登录，也不需要同时配置 Workers Builds。
 
 ## 在个人 PC 编辑和预览
 
