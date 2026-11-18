@@ -4,7 +4,7 @@ import { unified } from '@astrojs/markdown-remark';
 import legacyHeadings from './scripts/legacy-headings.mjs';
 
 export default defineConfig({
-  site: 'https://erossr.com',
+  site: 'https://blog.erossr.com',
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],

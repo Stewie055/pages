@@ -1,13 +1,28 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { formatDate, postUrl, tagUrl } from '../lib/posts';
-interface Props { posts: CollectionEntry<'posts'>[]; }
-const { posts } = Astro.props;
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+  layout?: 'lead' | 'compact';
+}
+
+const { posts, layout } = Astro.props;
 ---
-<div class="post-list">
-  {posts.map(post => <article class="post-row">
-    <time datetime={formatDate(post.data.date)}>{formatDate(post.data.date)}</time>
-    <div><h3><a href={postUrl(post.data.slug)}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="post-tags">{post.data.tags.map(tag => <a href={tagUrl(tag)}>#{tag}</a>)}</div></div>
-    <a class="row-arrow" href={postUrl(post.data.slug)} aria-label={`阅读 ${post.data.title}`}>↗</a>
-  </article>)}
+<div class:list={['post-list', layout && `post-list-${layout}`]}>
+  {posts.map(({ data }) => (
+    <article class="post-row">
+      <time class="post-date" datetime={formatDate(data.date)}>{formatDate(data.date)}</time>
+      <div class="post-content">
+        <a class="post-link" href={postUrl(data.slug)}>
+          <h2>{data.title}</h2>
+          {layout !== 'compact' && data.description && <p>{data.description}</p>}
+        </a>
+        {layout !== 'compact' && data.tags.length > 0 && (
+          <ul class="post-tags" aria-label="文章标签">
+            {data.tags.map(tag => <li><a href={tagUrl(tag)}>{tag}</a></li>)}
+          </ul>
+        )}
+      </div>
+    </article>
+  ))}
 </div>

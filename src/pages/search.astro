@@ -1,4 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="搜索"><section class="page-heading"><div class="eyebrow">FIND A NOTE</div><h1>搜索文章</h1><p>输入关键词，查找标题与正文。</p></section><div id="search" class="search-container"></div><noscript><p>搜索需要启用 JavaScript。你也可以<a href="/archives/">通过归档查找文章</a>。</p></noscript><link href="/pagefind/pagefind-ui.css" rel="stylesheet" /><script is:inline src="/pagefind/pagefind-ui.js"></script><script is:inline>if (window.PagefindUI) { new PagefindUI({ element: '#search', showSubResults: true, translations: { placeholder: '搜索文章内容…', clear_search: '清除', load_more: '加载更多', search_label: '搜索文章', searching: '搜索中…', zero_results: '没有找到“[SEARCH_TERM]”的相关文章', many_results: '找到 [COUNT] 条结果', one_result: '找到 1 条结果' } }); }</script></Base>
+<Base title="搜索">
+  <div class="reading-width listing-page">
+    <header class="page-heading"><h1>搜索</h1></header>
+    <div id="search" class="search-container"></div>
+    <noscript><p class="prose">搜索需要 JavaScript。<a href="/archives/">浏览归档</a></p></noscript>
+  </div>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    if (window.PagefindUI) {
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        translations: {
+          placeholder: '搜索标题或正文',
+          clear_search: '清除',
+          load_more: '加载更多',
+          search_label: '搜索文章',
+          searching: '搜索中…',
+          zero_results: '没有找到“[SEARCH_TERM]”的相关文章',
+          many_results: '找到 [COUNT] 条结果',
+          one_result: '找到 1 条结果',
+        },
+      });
+    }
+  </script>
+</Base>

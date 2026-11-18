@@ -1,4 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import { siteName } from '../lib/site';
 ---
-<Base title="关于"><section class="page-heading"><div class="eyebrow">HELLO, I'M EROSSR</div><h1>保持好奇，认真记录。</h1><p>这里是二哈博客，一处存放技术实践与思考的地方。</p></section><div class="about-content prose"><h2>为什么写博客</h2><p>解决一个问题之后，留下的不该只有结果。把思路、尝试和细节记录下来，让之后的自己，也让遇到相似问题的人，有迹可循。</p><h2>这里会写什么</h2><p>编程、Linux、调试、网络和工具。既有对原理的梳理，也有具体操作的记录。</p><h2>从旧记录继续</h2><p>这里保留了 2014 年至 2018 年的文章。旧文章呈现的是当时的经验，阅读时请留意软件版本和服务变化。</p><p><a href="/archives/">浏览全部文章 →</a>，或通过 <a href="/rss.xml">RSS</a> 订阅。</p></div></Base>
+<Base title="关于">
+  <div class="reading-width listing-page">
+    <header class="page-heading"><h1>关于</h1></header>
+    <div class="prose">
+      <p>{siteName}是 Erossr 的技术博客，主题包括编程、Linux、调试、网络与工具。</p>
+    </div>
+  </div>
+</Base>
